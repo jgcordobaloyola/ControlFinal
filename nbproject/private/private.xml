@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/Laboratorio/database/migrations/2018_06_29_231801_create_empleados_table.php</file>
-            <file>file:/C:/wamp64/www/Laboratorio/database/migrations/2018_06_29_222241_create_telefonos_table.php</file>
-            <file>file:/C:/wamp64/www/Laboratorio/database/migrations/2018_06_29_222339_create_tipo_analises_table.php</file>
+            <file>file:/C:/wamp64/www/Laboratorio/routes/web.php</file>
+            <file>file:/C:/wamp64/www/Laboratorio/app/Http/Controllers/CreaUserController.php.php</file>
+            <file>file:/C:/wamp64/www/Laboratorio/resources/views/Register/register.blade.php</file>
+            <file>file:/C:/wamp64/www/Laboratorio/resources/views/home/inicio.blade.php</file>
         </group>
     </open-files>
 </project-private>
