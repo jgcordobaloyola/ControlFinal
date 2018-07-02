@@ -33,3 +33,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//resultado de analisi
+Route::get('/resultadoAnalisis','ResultadoAnalisisController@index');

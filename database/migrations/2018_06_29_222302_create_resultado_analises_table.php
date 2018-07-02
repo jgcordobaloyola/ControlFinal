@@ -13,10 +13,13 @@ class CreateResultadoAnalisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resultado_analisis', function (Blueprint $table) {
+        Schema::create('resultado_analises', function (Blueprint $table) {
             $table->engine = 'InnoDB'; 
-            $table->integer('idTipoAnalisis')->unsigned(); 
-            $table->integer('idAnalisisMuestras'); 
+            $table->integer('idTipoAnalisis')->unsigned();
+            
+            $table->integer('idAnalisisMuestras')->unsigned();
+            $table->foreign('idAnalisisMuestras')->references('idAnalisisMuestras')->on('analisis_muestras');
+            
             $table->date('fechaRegistro'); 
             $table->integer('PPM'); 
             $table->boolean('estado');

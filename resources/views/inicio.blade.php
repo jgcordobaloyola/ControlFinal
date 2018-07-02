@@ -56,54 +56,44 @@
             <a class="navbar-brand" href="registro">Registrarse |</a>
         </nav>
 
-        <div class="p-3 mb-2 bg-light text-dark">
-            <h2>Acceso al Sistema</h2>
-            <p></p>
-            <hr>
+        <!--- myCarousel-->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="http://saludhoy.com.ar/wp-content/uploads/2018/01/FARMA.jpg" 
+                         alt="Toma de muestras">
+                </div>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+                <div class="item">
+                    <img src="http://sep.edu.umh.es/wp-content/uploads/sites/1293/2017/11/materiales-para-laboratorio-3-1.jpg" 
+                         alt="Equipo profesional">
+                </div>
 
-            <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-            </label>
-
-            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-            <div class="clearfix">
-                <button type="button" class="cancelbtn">Cancelar</button>
-                <button type="button" id="signupbtn" class="signupbtn">Ingresar</button>
+                <div class="item">
+                    <img src="http://static.websguru.com.ar/var/m_4/48/487/63512/935272-laboratorio-de-analisis-clinicos-dr-mario-carta-banner.jpg" 
+                         alt="Responsables">
+                </div>
             </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
 
-        <!-- scripting -->
-        <script type="text/javascript">
-                $(document).ready(function () {
-                    $("#signupbtn").click(function (event) {
-                        var body = {
-                            'email': $("input[name='email']").val(),
-                            'password': $("input[name='password']").val(),
-                        }
-                        $.post("../registro", body, function (a, b, c) {
-                            swal(
-                                    'Excelente!',
-                                    'Usuario Creado!',
-                                    'success'
-                                    )
-                        }).fail(function (resp, error, responseType) {
-                            swal({
-                                type: 'error',
-                                title: responseType,
-                                text: resp['responseText'],
-                            })
-                        });
-                        //event.preventDefault();
-                    })
-                })
-        </script>
 
     </body>
 </html>

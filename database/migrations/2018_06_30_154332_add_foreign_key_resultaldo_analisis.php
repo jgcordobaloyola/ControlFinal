@@ -13,11 +13,13 @@ class AddForeignKeyResultaldoAnalisis extends Migration
      */
     public function up()
     {
-        Schema::table('resultado_analisis', function (Blueprint $table) {
+        Schema::table('resultado_analises', function (Blueprint $table) {
             //$table->string('rutEmpleadoAnalista');
             $table->foreign('rutEmpleadoAnalista')->references('rutEmpleado')->on('empleado');
             
-            $table->foreign('idTipoAnalisis')->references('id')->on('tipo_analisis');
+            //$table->foreign('idAnalisisMuestras')->references('idAnalisisMuestras')->on('analisis_muestras');
+            
+            $table->foreign('idTipoAnalisis')->references('id')->on('tipo_analises');
             
             
         });

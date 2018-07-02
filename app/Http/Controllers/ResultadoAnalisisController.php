@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ResultadoAnalisis;
 
 class ResultadoAnalisisController extends Controller
 {
@@ -13,7 +14,8 @@ class ResultadoAnalisisController extends Controller
      */
     public function index()
     {
-        //
+        $resuAnalisis = ResultadoAnalisis::all();
+        return response()->json($resuAnalisis,200);
     }
 
     /**

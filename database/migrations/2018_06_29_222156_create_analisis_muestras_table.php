@@ -18,16 +18,8 @@ class CreateAnalisisMuestrasTable extends Migration
             $table->increments('idAnalisisMuestras'); 
             $table->date('fechaRecepcion'); 
             $table->decimal('temperaturaMuestra', 3, 1); 
-            $table->integer('cantidadMuestra'); 
-//            $table->integer('Particular_codigoParticular')->default(null);
-            
-//            $table->foreign('Particular_codigoParticular')->
-//                    references('codigoParticular')->on('particular')->onDelete('cascade');
-            
-            $table->string('rutEmpleadoRecibe', 10); 
-//            $table->foreign('rutEmpleadoRecibe', 10)->
-//                    references('rutEmpleado')->on('empleado')->onDelete('cascade');
-//            
+            $table->integer('cantidadMuestra');             
+            $table->string('rutEmpleadoRecibe', 10);             
             $table->integer('empresa_codigoempresa')->unsigned();
             $table->foreign('empresa_codigoempresa')->
                     references('codigoEmpresa')->on('empresa')->onDelete('cascade');

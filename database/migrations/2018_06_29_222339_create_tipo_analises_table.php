@@ -13,7 +13,7 @@ class CreateTipoAnalisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_analisis', function (Blueprint $table) {
+        Schema::create('tipo_analises', function (Blueprint $table) {
             $table->engine = 'InnoDB'; 
             $table->increments('id');
             //$table->integer('id_TipoAnalisis')->unsigned(); 
