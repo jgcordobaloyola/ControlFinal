@@ -12,14 +12,24 @@
  */
 
 Route::get('/', function () {
-    return view('/home/inicio');
+    return view('inicio');
 });
 
 //registrando
-Route::get('/registro', function() {
-    return view('../register/register');
-    //echo 'debe de retornar el PHP del registro';
-});
+//Route::get('/registro', function() {
+//    return view('register');
+//    //echo 'debe de retornar el PHP del registro';
+//});
 
-//listar empresa
-Route::get('listarEmpresa/', 'empresaController@index');
+Route::post('/createuser', 'CreaUserController@store');
+Route::get('/listaruser', 'CreaUserController@show');
+
+Auth::routes();
+
+Route::get('/registro', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
