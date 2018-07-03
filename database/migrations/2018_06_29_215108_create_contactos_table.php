@@ -20,7 +20,7 @@ class CreateContactosTable extends Migration
                $table->string('emailContacto', 45); 
                $table->string('telefonoContacto', 15); 
                $table->integer('Empresa_codigoEmpresa')->unsigned();
-               $table->foreign('Empresa_codigoEmpresa')->references('codigoEmpresa')->on('empresa')->onDelete('cascade');
+               $table->foreign('Empresa_codigoEmpresa')->references('codigoEmpresa')->on('empresas')->onDelete('cascade');
                $table->primary('rutContacto'); 
                //$table->index('empresa_codigoempresa'); 
             $table->timestamps();

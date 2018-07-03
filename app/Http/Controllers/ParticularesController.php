@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Empresa;
 
-class empresaController extends Controller
-
-
+class ParticularesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class empresaController extends Controller
      */
     public function index()
     {
-        $empresa= Empresa::all();
-        return response()->json($empresa,200);
+        //
     }
 
     /**
@@ -38,16 +34,7 @@ class empresaController extends Controller
      */
     public function store(Request $request)
     {
-        $empresa = new Empresa();
-        
-        $empresa->rutEmpresa=$request->input('rutEmpresa');
-        $empresa->nombreEmpresa=$request->input('nombreEmpresa');
-        $empresa->passwordEmpresa=$request->input('passwordEmpresa');
-        $empresa->direccionEmpresa=$request->input('direccionEmpresa');
-        
-        $empresa->save();
-        
-        return response()->json($empresa,200);
+        //
     }
 
     /**

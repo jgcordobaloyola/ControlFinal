@@ -13,7 +13,7 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-        Schema::create('empresa', function (Blueprint $table) {
+        Schema::create('empresas', function (Blueprint $table) {
             $table->engine = 'InnoDB'; 
             $table->increments('codigoEmpresa'); 
             $table->string('rutEmpresa', 10); 

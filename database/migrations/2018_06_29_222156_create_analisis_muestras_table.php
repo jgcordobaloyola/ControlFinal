@@ -22,7 +22,7 @@ class CreateAnalisisMuestrasTable extends Migration
             $table->string('rutEmpleadoRecibe', 10);             
             $table->integer('empresa_codigoempresa')->unsigned();
             $table->foreign('empresa_codigoempresa')->
-                    references('codigoEmpresa')->on('empresa')->onDelete('cascade');
+                    references('codigoEmpresa')->on('empresas')->onDelete('cascade');
             
             $table->timestamps(); 
         });

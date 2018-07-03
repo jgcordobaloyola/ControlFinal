@@ -54,7 +54,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Laboratio ISP</a>
+                    <a class="navbar-brand" href="#">Acceso a Empresas </a>
                 </div>
                 <ul class="nav navbar-nav" role="menu" aria-labelledby="dropdownMenu1">
 
@@ -64,8 +64,8 @@
                             <!--<span class="caret"></span> -->
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="/showFormEmpresa">Empresas</a></li>
-                            <li><a href="/showFormParticular">Particulares</a></li>
+                            <li><a href="/createEmpresa">Empresas</a></li>
+                            <li><a href="/registroParticulares">Particulares</a></li>
                         </ul>
                     </div>
 
@@ -79,45 +79,77 @@
             </div>
         </nav>
 
-        <!--- myCarousel-->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
+        <div class="col-sm-6 col-md-3">
+            <div class="grid_1_4">
 
-            <br>
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="http://saludhoy.com.ar/wp-content/uploads/2018/01/FARMA.jpg" 
-                         alt="Toma de muestras" style="width:100%;">
-                </div>
+                <form action="/createEmpresa">
+                    <!-- <div id="createEmpresaForm"> -->
+                    <div class="form-group">
+                        <label for="nombreEmpresa">Nombre de la empresa</label>
+                        <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" required>
+                    </div>
 
-                <div class="item">
-                    <img src="http://sep.edu.umh.es/wp-content/uploads/sites/1293/2017/11/materiales-para-laboratorio-3-1.jpg" 
-                         alt="Equipo profesional" style="width:100%;">
-                </div>
+                    <div class="form-group">
+                        <label for="rutEmpresa">Rut de la empresa</label>
+                        <input type="text" class="form-control" id="rutEmpresa" name="rutEmpresa" required>
+                    </div>
 
-                <div class="item">
-                    <img src="https://www.tierratech.com/files/sectores/galeria/13---laboratorio.jpg" 
-                         alt="Responsables" style="width:100%;">
-                </div>
+                    <div class="form-group">
+                        <label for="pwd">Password Empresa</label>
+                        <input type="password" class="form-control" id="passwordEmpresa" name="passwordEmpresa" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccionEmpresa">DireccionEmpresa de la empresa</label>
+                        <input type="text" class="form-control" id="rutEmpresa" name="direccionEmpresa" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Crear Empresa</button>
+                    <!-- </div> -->
+                </form>
             </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
 
+        <div class="col-sm-6 col-md-3">
+            <div class="grid_1_4">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/listEmpresas"><span class="glyphicon glyphicon-book"></span>
+                            Ver el listado de Empresas</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <script type="text/javascript">
+                $(document).ready(function () {
+
+                    $("#createEmpresaForm").submit(function (event) {
+                        var body = {
+                            'nombreEmpresa': $("input[name='nombreEmpresa']").val(),
+                            'rutEmpresa': $("input[name='rutEmpresa']").val(),
+                            'passwordEmpresa': $("input[name='passwordEmpresa']").val(),
+                            'direccionEmpresa': $("input[name='direccionEmpresa']").val()
+                        }
+                        $.post("/createEmpresa", body, function (a, b, c) {
+                            debugger;
+                            swal(
+                                    'Empresa creada!',
+                                    'Ha creado la empresa',
+                                    'success'
+
+                                    )
+                        }).fail(function (resp, error, responseType) {
+                            swal({
+                                type: 'error',
+                                title: responseType,
+                                text: resp['responseText'],
+                            })
+                        });
+                        event.preventDefault();
+                    })
+                })
+        </script>
 
     </body>
 </html>

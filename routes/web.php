@@ -26,7 +26,7 @@ Route::get('/listaruser', 'CreaUserController@show');
 
 Auth::routes();
 
-Route::get('/registro', 'HomeController@index')->name('home');
+Route::get('/acceso', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -36,3 +36,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //resultado de analisi
 Route::get('/resultadoAnalisis','ResultadoAnalisisController@index');
+
+Route::get('/showFormEmpresa', function(){
+    return view ('registroEmpresa');
+});
+
+Route::post('/createEmpresa','empresaController@store');
+
+Route::get('/listEmpresas','empresaController@index');
