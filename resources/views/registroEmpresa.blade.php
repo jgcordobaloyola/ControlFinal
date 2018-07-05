@@ -82,16 +82,18 @@
         <div class="col-sm-6 col-md-3">
             <div class="grid_1_4">
 
-                <form action="/createEmpresa">
+                <form action="createEmpresa" method="POST">
+                    @csrf
                     <!-- <div id="createEmpresaForm"> -->
-                    <div class="form-group">
-                        <label for="nombreEmpresa">Nombre de la empresa</label>
-                        <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" required>
-                    </div>
-
+                    
                     <div class="form-group">
                         <label for="rutEmpresa">Rut de la empresa</label>
                         <input type="text" class="form-control" id="rutEmpresa" name="rutEmpresa" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nombreEmpresa">Nombre de la empresa</label>
+                        <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" required>
                     </div>
 
                     <div class="form-group">
@@ -103,7 +105,9 @@
                         <label for="direccionEmpresa">DireccionEmpresa de la empresa</label>
                         <input type="text" class="form-control" id="rutEmpresa" name="direccionEmpresa" required>
                     </div>
-
+                    
+                    <input type="hidden" name="_token" value="{{csrf_token()}}" >
+                    
                     <button type="submit" class="btn btn-default">Crear Empresa</button>
                     <!-- </div> -->
                 </form>
@@ -119,37 +123,16 @@
             </div>
 
         </div>
+        
+        <div class="col-sm-6 col-md-3">
+                <div class="grid_1_4">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/listEditEmpresas"><span class="glyphicon glyphicon-book"></span>
+                                Editar Empresa</a></li>
+                    </ul>
+                </div>
 
-
-        <script type="text/javascript">
-                $(document).ready(function () {
-
-                    $("#createEmpresaForm").submit(function (event) {
-                        var body = {
-                            'nombreEmpresa': $("input[name='nombreEmpresa']").val(),
-                            'rutEmpresa': $("input[name='rutEmpresa']").val(),
-                            'passwordEmpresa': $("input[name='passwordEmpresa']").val(),
-                            'direccionEmpresa': $("input[name='direccionEmpresa']").val()
-                        }
-                        $.post("/createEmpresa", body, function (a, b, c) {
-                            debugger;
-                            swal(
-                                    'Empresa creada!',
-                                    'Ha creado la empresa',
-                                    'success'
-
-                                    )
-                        }).fail(function (resp, error, responseType) {
-                            swal({
-                                type: 'error',
-                                title: responseType,
-                                text: resp['responseText'],
-                            })
-                        });
-                        event.preventDefault();
-                    })
-                })
-        </script>
+            </div>
 
     </body>
 </html>

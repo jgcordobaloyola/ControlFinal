@@ -591,6 +591,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
      */
     public function save(array $options = [])
     {
+        //echo "llegamos hasta aca";
         $query = $this->newModelQuery();
 
         // If the "saving" event returns false we'll bail out of the save and return

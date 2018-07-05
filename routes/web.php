@@ -21,6 +21,8 @@ Route::get('/', function () {
 //    //echo 'debe de retornar el PHP del registro';
 //});
 
+//view::make();
+
 Route::post('/createuser', 'CreaUserController@store');
 Route::get('/listaruser', 'CreaUserController@show');
 
@@ -44,3 +46,18 @@ Route::get('/showFormEmpresa', function(){
 Route::post('/createEmpresa','empresaController@store');
 
 Route::get('/listEmpresas','empresaController@index');
+
+Route::get('/listEditEmpresas', function(){
+    return view ('editEmpresa_2');
+});
+
+Route::get('/updateEmpresa','empresaController@update');
+
+
+//particular
+
+Route::get('/showFormParticular', function(){
+    return view ('registroParticular');
+});
+
+Route::post('/createPersona','ParticularController@store');

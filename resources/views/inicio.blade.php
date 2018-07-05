@@ -54,7 +54,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Laboratio ISP</a>
+                    <a class="navbar-brand" href="#">Laboratorio ISP</a>
                 </div>
                 <ul class="nav navbar-nav" role="menu" aria-labelledby="dropdownMenu1">
 
