@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Particular;
-use Illuminate\Support\Facades\Input;
+user \App\User;
 
-class ParticularController extends Controller
+class CreaUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ParticularController extends Controller
      */
     public function index()
     {
-        $particular= Particular::all();
-        return response()->json($particular,200);
+        //
     }
 
     /**
@@ -37,17 +35,14 @@ class ParticularController extends Controller
      */
     public function store(Request $request)
     {
-        $particular = new Particular();
-        
-        $particular->nombreParticular=$request->get('nombreParticular');
-        $particular->rutParticular=$request->get('rutParticular');
-        $particular->passwordParticular=$request->get('passwordParticular');
-        $particular->direccionParticular=$request->get('direccionParticular');
-        $particular->emailParticular=$request->get('emailParticular');
-        
-        $particular->save();
-        
-        return response()->json($particular,200);
+        $user = new User();
+        $user->name = $request->input("name");
+        $user->password = Hash::make($request->input("password"));
+        $user->email = $request->input("email");
+        //guardando en sesion
+        Session::set('nombreUsuario', $request->input("name"));
+        $user->save();
+        return response()->json($user, 200);
     }
 
     /**
@@ -58,7 +53,8 @@ class ParticularController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuarios = User::all();
+        return response()->json($usuarios,200);
     }
 
     /**

@@ -15,13 +15,6 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-//registrando
-//Route::get('/registro', function() {
-//    return view('register');
-//    //echo 'debe de retornar el PHP del registro';
-//});
-
-//view::make();
 
 Route::post('/createuser', 'CreaUserController@store');
 Route::get('/listaruser', 'CreaUserController@show');
@@ -60,4 +53,11 @@ Route::get('/showFormParticular', function(){
     return view ('registroParticular');
 });
 
-Route::post('/createPersona','ParticularController@store');
+Route::get('/createPersona','ParticularController@store');
+
+Route::get('/listParticular','ParticularController@index');
+
+//muestras
+Route::get('/formMuestras', function(){
+    return view ('formMuestras');
+});

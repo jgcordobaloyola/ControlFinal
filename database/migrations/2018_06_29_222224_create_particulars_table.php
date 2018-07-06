@@ -13,7 +13,7 @@ class CreateParticularsTable extends Migration
      */
     public function up()
     {
-        Schema::create('particular', function (Blueprint $table) {
+        Schema::create('particulars', function (Blueprint $table) {
             $table->engine = 'InnoDB'; 
             $table->increments('codigoParticular'); 
             $table->string('rutParticular', 45); 

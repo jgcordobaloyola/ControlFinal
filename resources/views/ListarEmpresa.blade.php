@@ -74,7 +74,7 @@
             function Cargar() {
                 //alert("Entro a la funcion cargar");
                 var xmlhttp = new XMLHttpRequest();
-                var url = "/ListarEmpresas";
+                var url = "/listEmpresas";
                 xmlhttp.onreadystatechange = function () {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         var array = JSON.parse(xmlhttp.responseText);

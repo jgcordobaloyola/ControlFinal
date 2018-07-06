@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-user \App\User;
+use App\TipoAnalisis;
+use Illuminate\Support\Facades\Input;
 
-class CreaUserController extends Controller
+class TipoAnalisisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class CreaUserController extends Controller
      */
     public function index()
     {
-        //
+        $TpAnalisis= Particular::all();
+        return response()->json($TpAnalisis,200);
     }
 
     /**
@@ -35,12 +37,7 @@ class CreaUserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = $request->input("name");
-        $user->password = Hash::make($request->input("password"));
-        $user->email = $request->input("email");
-        $user->save();
-        return response()->json($user, 200);
+        //
     }
 
     /**
@@ -51,8 +48,7 @@ class CreaUserController extends Controller
      */
     public function show($id)
     {
-        $usuarios = User::all();
-        return response()->json($usuarios,200);
+        //
     }
 
     /**

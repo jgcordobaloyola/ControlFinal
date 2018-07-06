@@ -42,7 +42,7 @@
         <script src="https://unpkg.com/sweetalert2@7.19.3/dist/sweetalert2.all.js"></script>
 
     </head>
-    <body class="text-dark"> 
+    <body class="text-dark" onload="Cargar();"> 
         <div class="row fondo">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h1 class="text-center text-uppercase">Laboratorio ISP</h1>
@@ -54,7 +54,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Acceso a Particulares </a>
+                    <a class="navbar-brand" href="http://127.0.0.1:8000">Acceso a Particulares </a>
                 </div>
                 <ul class="nav navbar-nav" role="menu" aria-labelledby="dropdownMenu1">
 
@@ -116,15 +116,53 @@
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-8 col-md-8">
             <div class="grid_1_4">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/listEmpresas"><span class="glyphicon glyphicon-book"></span>
-                            Ver el listado de las Personas</a></li>
-                </ul>
-            </div>
+                    <li><a href="#"><span class="glyphicon glyphicon-book"></span>
+                            Listado de Particulares</a></li></ul>
+                <div id="resultado"></div>
 
+            </div>
         </div>
+        
+        
+        <script>
+            function Cargar() {
+                //alert("Entro a la funcion cargar");
+                var xmlhttp = new XMLHttpRequest();
+                var url = "/listParticular";
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var array = JSON.parse(xmlhttp.responseText);
+                        var i;
+                        var out = "<table border='1' class='table table-striped table-bordered' style='width:100%' >";
+                        out += " <thead> <tr><th>ID</th><th>Rut</th><th>Nombre</th><th>Direccion</th>";
+                        out += "<th>Email</th><th>Editar</th><th>Eliminar</th></tr><thead>";
+                        for (i = 0; i < array.length; i++) {
+                            out += " <tr><td>" +
+                                    array[i].codigoParticular +
+                                    "</td><td>" +
+                                    array[i].rutParticular +
+                                    "</td><td>" +
+                                    array[i].nombreParticular +
+                                    "</td><td>" +
+                                    array[i].direccionParticular +
+                                    "</td><td>" +
+                                    array[i].emailParticular +
+                                    "</td><td><button type='submit' class='btn btn-info'> Editar </button>" +
+                                    "</td><td><button class='btn btn-info' >Eliminar </button>" +
+                                    "</td></tr>";
+
+                        }
+                        out += "</table>";
+                        document.getElementById("resultado").innerHTML = out;
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+        </script>
 
     </body>
 </html>

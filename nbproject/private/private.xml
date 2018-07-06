@@ -4,9 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/Laboratorio/routes/web.php</file>
-            <file>file:/C:/wamp64/www/Laboratorio/resources/views/editEmpresa_2.blade.php</file>
-            <file>file:/C:/wamp64/www/Laboratorio/resources/views/editEmpresa.blade.php</file>
+            <file>file:/C:/wamp64/www/Laboratorio/resources/views/ListarEmpresa.blade.php</file>
             <file>file:/C:/wamp64/www/Laboratorio/package.json</file>
+            <file>file:/C:/wamp64/www/Laboratorio/app/category/form.blade.php</file>
             <file>file:/C:/wamp64/www/Laboratorio/resources/views/registroEmpresa.blade.php</file>
             <file>file:/C:/wamp64/www/Laboratorio/app/Http/Controllers/empresaController.php</file>
         </group>
