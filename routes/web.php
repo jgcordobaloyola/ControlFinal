@@ -57,7 +57,17 @@ Route::get('/createPersona','ParticularController@store');
 
 Route::get('/listParticular','ParticularController@index');
 
-//muestras
+//muestras a Analizar
 Route::get('/formMuestras', function(){
     return view ('formMuestras');
 });
+
+Route::post('/storeAnalisis','AnalisisMuestrasController@store');
+
+
+//agregar Empleado
+Route::get('/formEmpleado', function(){
+    return view ('registroEmpleado');
+});
+
+Route::post('/storeEmpleado','EmpleadoController@store');

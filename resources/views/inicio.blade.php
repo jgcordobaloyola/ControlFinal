@@ -23,9 +23,24 @@
                             <li><a href="/showFormParticular">Particulares</a></li>
                         </ul>
                     </div>
-
-                    <li><a href="formMuestras">Ingreso Muestras</a></li>
-                    <li><a href="Mantenedores">Mantenedores</a></li>
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+                            Ingreso Muestras
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/createEmpresa">Muestra 1</a></li>
+                            <li><a href="/showFormParticular">Muestra 2</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+                            Mantenedores
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/formEmpleado">Agregar Empleado</a></li>
+                            <li><a href="/showFormParticular">mantenedor 2</a></li>
+                        </ul>
+                    </div>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest

@@ -90,23 +90,28 @@
         <div class="col-sm-3 col-md-9">
             <div class="grid_1_4">
 
-                <form action="createEmpresa" method="POST">
+                <form action="storeAnalisis" method="POST">
                     @csrf
                     <!-- <div id="createEmpresaForm"> -->
 
                     <div class="form-group">
-                        <label for="codigoCliente">Codigo Cliente</label>
+                        <label for="codigoCliente">Codigo Particular</label>
                         <input type="number" class="form-control" id="codigoCliente" name="codigoCliente" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="rutCliente">Rut Cliente</label>
-                        <input type="text" class="form-control" id="rutCliente" name="rutCliente" required>
+                        <label for="rutEmpleadoRecibe">Rut Encargado</label>
+                        <input type="text" class="form-control" id="rutEmpleadoRecibe" name="rutEmpleadoRecibe" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="pwd">Password Empresa</label>
-                        <input type="password" class="form-control" id="passwordEmpresa" name="passwordEmpresa" required>
+                        <label for="cantidadMuestra">Cantidad de Muestra</label>
+                        <input type="number" class="form-control" id="cantidadMuestra" name="cantidadMuestra" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa_codigoempresa">Codigo de la empresa a la cual pertenece el particular</label>
+                        <input type="number" class="form-control" id="empresa_codigoempresa" name="empresa_codigoempresa" required>
                     </div>
 
                     <div class="form-group">
@@ -115,20 +120,15 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="nombreCliente">Fecha Recepcion</label>
-                        <input type="date" class="form-control" id="nombreCliente" name="nombreCliente" required>
+                        <label for="fechaRecepcion">Fecha Recepcion</label>
+                        <input type="date" class="form-control" id="fechaRecepcion" name="fechaRecepcion" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="codigoCliente">Temperatura Muestra</label>
-                        <input type="number" class="form-control" id="codigoCliente" name="codigoCliente" required>
+                        <label for="temperaturaMuestra">Temperatura Muestra</label>
+                        <input type="number" class="form-control" id="temperaturaMuestra" name="temperaturaMuestra" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="codigoCliente">Cantidad Muestra</label>
-                        <input type="number" class="form-control" id="codigoCliente" name="codigoCliente" required>
-                    </div>
-
                     <div class="checkbox form-group">
                         <label for="nombreCliente">Tipo de Analisis | deteccion de:</label>
                         <br>
