@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//resultado de analisi
+//resultado de analisis
 Route::get('/resultadoAnalisis','ResultadoAnalisisController@index');
 
 Route::get('/showFormEmpresa', function(){
@@ -53,6 +53,16 @@ Route::get('/showFormParticular', function(){
     return view ('registroParticular');
 });
 
+//conectato
+Route::get('/formAddContacto', function(){
+    return view ('AddContacto');
+});
+
+Route::get('/listContactos','contactoController@index');
+
+Route::post('/createContacto','contactoController@store');
+
+//persona
 Route::get('/createPersona','ParticularController@store');
 
 Route::get('/listParticular','ParticularController@index');
@@ -71,3 +81,7 @@ Route::get('/formEmpleado', function(){
 });
 
 Route::post('/storeEmpleado','EmpleadoController@store');
+
+
+///estadisticas 
+Route::resource('estadisticas','EstadisticasController@index');

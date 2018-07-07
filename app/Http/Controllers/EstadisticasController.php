@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contacto;
-use Illuminate\Support\Facades\Input;
 
-class contactoController extends Controller
+class EstadisticasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $contacto = Contacto::all();
-        return response()->json($contacto,200);
+/**
+ * Display a listing of the resource.
+ *
+ * @return \Illuminate\Http\Response
+ */
+public function index()
+{
+$pastel = DB::select("select COUNT(*), `idTipoAnalisis`,ta.nombre from resultado_analises
+inner join tipo_analises as TA
+group by `idTipoAnalisis`");
     }
 
     /**
@@ -37,15 +36,7 @@ class contactoController extends Controller
      */
     public function store(Request $request)
     {
-        $contacto = new Contacto();
-        $contacto->rutContacto = $request->post("rutContacto");
-        $contacto->nombreContacto = $request->post("nombreContacto");
-        $contacto->emailContacto  = $request->post("emailContacto");
-        $contacto->telefonoContacto = $request->post("telefonoContacto");
-        $contacto->Empresa_codigoEmpresa = $request->post("Empresa_codigoEmpresa");
-        $contacto->save();
-        
-        return response()->json($contacto, 200);
+        //
     }
 
     /**

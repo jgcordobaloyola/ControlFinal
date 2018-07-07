@@ -13,9 +13,16 @@
                 </div>
                 <ul class="nav navbar-nav" role="menu" aria-labelledby="dropdownMenu1">
 
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @guest
+                    <li><a href="/register"><span class="glyphicon glyphicon-user"></span>Registro</a></li>
+                    <li><a href="/acceso"><span class="glyphicon glyphicon-log-in"></span> Acceso</a></li>
+                    @else
                     <div class="dropdown">
                         <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
-                            Registro
+                            Acceso
                             <!--<span class="caret"></span> -->
                         </button>
                         <ul class="dropdown-menu">
@@ -41,12 +48,7 @@
                             <li><a href="/showFormParticular">mantenedor 2</a></li>
                         </ul>
                     </div>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    @guest
-                    <li><a href="/register"><span class="glyphicon glyphicon-user"></span>Registro</a></li>
-                    <li><a href="/acceso"><span class="glyphicon glyphicon-log-in"></span> Acceso</a></li>
-                    @else
+                    
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

@@ -103,87 +103,29 @@
             </div>
         </nav>
 
-        <div class="col-sm-6 col-md-3">
-            <div class="grid_1_4">
-
-                <form action="createEmpresa" method="POST">
-                    @csrf
-                    <!-- <div id="createEmpresaForm"> -->
-
-                    <div class="form-group">
-                        <label for="rutEmpresa">Rut de la empresa</label>
-                        <input type="text" class="form-control" id="rutEmpresa" name="rutEmpresa" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nombreEmpresa">Nombre de la empresa</label>
-                        <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pwd">Password Empresa</label>
-                        <input type="password" class="form-control" id="passwordEmpresa" name="passwordEmpresa" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="direccionEmpresa">DireccionEmpresa de la empresa</label>
-                        <input type="text" class="form-control" id="rutEmpresa" name="direccionEmpresa" required>
-                    </div>
-
-                    <input type="hidden" name="_token" value="{{csrf_token()}}" >
-
-                    <button type="submit" class="btn btn-default">Crear Empresa</button>
-                    <!-- </div> -->
-                </form>
-            </div>
-        </div>
-
-        <div class="col-sm-8 col-md-8">
-            <div class="grid_1_4">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="formAddContacto"><span class="glyphicon glyphicon-book"></span>
-                            Agregar Contacto a Empresa</a></li></ul>
-                <div id="resultado"></div>
-
-            </div>
-        </div>
+<!-- graficos -->
 
 
 
-        <script>
-            function Cargar() {
-                //alert("Entro a la funcion cargar");
-                var xmlhttp = new XMLHttpRequest();
-                var url = "/listEmpresas";
-                xmlhttp.onreadystatechange = function () {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        var array = JSON.parse(xmlhttp.responseText);
-                        var i;
-                        var out = "<table border='1' class='table table-striped table-bordered' style='width:100%' >";
-                        out += " <thead> <tr><th>ID</th><th>Rut</th><th>Direccion</th>";
-                        out += "<th>Editar</th><th>Eliminar</th></tr><thead>";
-                        for (i = 0; i < array.length; i++) {
-                            out += " <tr><td>" +
-                                    array[i].codigoEmpresa +
-                                    "</td><td>" +
-                                    array[i].rutEmpresa +
-                                    "</td><td>" +
-//                                    array[i].passwordEmpresa +
-//                                    "</td><td>" +
-                                    array[i].direccionEmpresa +
-                                    "</td><td><button type='submit' class='btn btn-info'> Editar </button>" +
-                                    "</td><td><button class='btn btn-info' >Eliminar </button>" +
-                                    "</td></tr>";
+<!--- funcion --->
+<script type="text/javascript" src="graficas/googlechart.js"></script>
 
-                        }
-                        out += "</table>";
-                        document.getElementById("resultado").innerHTML = out;
-                    }
-                }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            }
-        </script>
-
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['idTipoAnalisis', 'TA.nombre'],
+            @foreach ($pastel as $pastels)
+              ['{{ $pastels->ubicacion}}', {{ $pastels->total}}],
+            @endforeach
+        ]);
+        var options = {
+          title: 'Representación grafica de clientes por ubicacion'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
     </body>
 </html>
